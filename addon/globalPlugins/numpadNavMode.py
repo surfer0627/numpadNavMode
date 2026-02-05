@@ -12,9 +12,8 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 import types
-from typing import Any
+from typing import Any, NamedTuple
 import winUser  # NLM
-from collections import namedtuple
 import wx
 
 import gui
@@ -103,7 +102,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	NVDA = 1
 
 	#: Each gesture we manipulate will have these three fields, not including the gesture itself.
-	G = namedtuple('G', 'mod cls scr')
+	G = NamedTuple('G', [
+		("mod", Any),
+		("cls", Any),
+		("scr", Any)
+	])
 
 	#: These are the gestures we override to make the numpad perform Windows nav.
 	#: The G objects are namedtuples holding the module, class, and the script applicable to each gesture.
