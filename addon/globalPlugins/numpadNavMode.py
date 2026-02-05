@@ -365,7 +365,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		currentGestures = self._getAllGesturesAsGDict()
 		for gest, action in self.userGestures.items():
 			# If the gesture isn't set, we need to put it back.
-			if not gest in currentGestures:
+			if gest not in currentGestures:
 				manager.userGestureMap.add(gest, *action, True)
 
 	def handleConfigProfileSwitch(self):
