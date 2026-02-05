@@ -12,6 +12,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 import types
+from typing import Any
 import winUser  # NLM
 from collections import namedtuple
 import wx
@@ -293,7 +294,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		log.info(f"Numpad set to {self.modeTextEN} nav mode.")
 
 	@classmethod
-	def _getAllGesturesAsGDict(cls) -> dict:
+	def _getAllGesturesAsGDict(cls) -> dict[Any, Any]:
 		"""Returns a dict of all currently configured user gestures, using G objects."""
 		gDict = {
 			gest: cls.G(mc.__module__, mc.__name__, scr)
