@@ -25,7 +25,7 @@ addon_info = AddonInfo(
 Especially useful if migrating from Jaws; or for laptop users preferring laptop mode, but who have a numpad and want to use it for arrow keys, etc.
 The add-on also gives control of numlock state when starting NVDA or changing profiles."""),
 	# version
-	addon_version="24.1.4",
+	addon_version="26.1",
 	# Brief changelog for this version
 	# Translators: what's new content for the add-on version to be shown in the add-on store
 	addon_changelog=_("""* NVDA 2025.1 compatibility.
