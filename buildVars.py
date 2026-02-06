@@ -28,7 +28,8 @@ The add-on also gives control of numlock state when starting NVDA or changing pr
 	addon_version="24.1.4",
 	# Brief changelog for this version
 	# Translators: what's new content for the add-on version to be shown in the add-on store
-	addon_changelog=_("""* NVDA 2025.1 compatibility."""),
+	addon_changelog=_("""* NVDA 2025.1 compatibility.
+* Made the add-on code more robust with help from Pyright (a Python static type checker)."""),
 	# Author(s)
 	addon_author="Luke Davis (Open Source Systems, Ltd.) <XLTechie@newanswertech.com>",
 	# URL for the add-on documentation support
