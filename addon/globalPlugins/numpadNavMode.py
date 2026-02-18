@@ -330,6 +330,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			manager.userGestureMap.add("kb(desktop):" + gFrag, *action, True)
 			manager.userGestureMap.add("kb(laptop):" + gFrag, *action, True)
 			manager.userGestureMap.add("kb:" + gFrag, action.mod, action.cls, None, True)
+		for i in addonHandler.getRunningAddons():
+			if i.name == 'CJKEnhancedUI':
+				manager.userGestureMap.add('kb:numpad2', 'globalPlugins.cjkEnhancedUI', 'GlobalPlugin', 'kb:downarrow')
+				manager.userGestureMap.add('kb:Shift+numPad2', 'globalPlugins.cjkEnhancedUI', 'GlobalPlugin', 'kb:shift+downarrow')
+				manager.userGestureMap.add('kb:numpad1', 'globalPlugins.cjkEnhancedUI', 'GlobalPlugin', 'kb:end')
+				manager.userGestureMap.add('kb:numpad3', 'globalPlugins.cjkEnhancedUI', 'GlobalPlugin', 'kb:pagedown')
 
 	def _setNVDANavMode(self) -> None:
 		"""A setMode() helper method, to put the numpad back in NVDA mode.
@@ -339,6 +345,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		If so, remove it.
 		If not (meaning it has been reassigned by the user or an add-on), leave it alone.
 		"""
+
+		for i in addonHandler.getRunningAddons():
+			if i.name == 'CJKEnhancedUI':
+				manager.userGestureMap.remove('kb:numpad2', 'globalPlugins.cjkEnhancedUI', 'GlobalPlugin', 'kb:downarrow')
+				manager.userGestureMap.remove('kb:Shift+numPad2', 'globalPlugins.cjkEnhancedUI', 'GlobalPlugin', 'kb:shift+downarrow')
+				manager.userGestureMap.remove('kb:numpad1', 'globalPlugins.cjkEnhancedUI', 'GlobalPlugin', 'kb:end')
+				manager.userGestureMap.remove('kb:numpad3', 'globalPlugins.cjkEnhancedUI', 'GlobalPlugin', 'kb:pagedown')
+
 		checkThese = {}	#: Mungible dict of gestures we use
 		# Build the checkables
 		for gFrag, action in self.numpadGestures.items():
